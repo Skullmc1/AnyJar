@@ -27,3 +27,7 @@ Many hosting services provide a pre-configured environment that doesn't allow yo
 AnyJar solves this problem by acting as a wrapper for your server. You can upload the AnyJar `server.jar` to your host and configure it to run your actual server JAR file with any startup command you want. This gives you the flexibility to run any server or use any custom flags you need.
 
 You can also use this to run something else entirely, such as a discord bot or a custom script.
+
+## Current Issues
+
+* killing the anyjar process, does not stop the child process. 
