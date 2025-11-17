@@ -22,6 +22,8 @@ The `server.yml` file allows you to configure the following options:
 
 ## Why Use AnyJar?
 
-Many Minecraft hosting services provide a pre-configured environment that doesn't allow you to modify the startup command for your server. This can be limiting if you want to use custom flags or a different JAR file than the one provided by the host.
+Many hosting services provide a pre-configured environment that doesn't allow you to modify the startup command for your server. This can be limiting if you want to use custom flags or a different JAR file than the one provided by the host.
 
-AnyJar solves this problem by acting as a wrapper for your server. You can upload the AnyJar `server.jar` to your host and configure it to run your actual server JAR file with any startup command you want. This gives you the flexibility to run any server version or use any custom flags you need.
+AnyJar solves this problem by acting as a wrapper for your server. You can upload the AnyJar `server.jar` to your host and configure it to run your actual server JAR file with any startup command you want. This gives you the flexibility to run any server or use any custom flags you need.
+
+You can also use this to run something else entirely, such as a discord bot or a custom script.
