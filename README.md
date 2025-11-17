@@ -4,7 +4,7 @@ AnyJar is a simple and flexible wrapper for running any JAR file, designed with 
 
 ## How to Use
 
-1.  Download the latest `server.jar` from the [releases page](https://github.com/your-username/anyjar/releases).
+1.  Download the latest `server.jar` from the [releases page](https://github.com/Skullmc1/AnyJar/releases).
 2.  Place the `server.jar` file in the same directory as your actual server JAR file (e.g., `paper.jar`, `spigot.jar`).
 3.  Run the `server.jar` file once. This will generate a `server.yml` file.
 4.  Open the `server.yml` file and configure the settings to your liking.
