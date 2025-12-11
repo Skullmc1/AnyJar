@@ -1,6 +1,6 @@
 ![title](images/title.png)
 #
-AnyJar is a simple and flexible wrapper for running any JAR file, designed with Minecraft servers in mind. It allows you to customize the startup command for your server, which is especially useful on hosting services that don't allow you to modify the startup command directly.
+AnyJar is a simple and flexible wrapper for running any executable file, designed with Minecraft servers in mind. It allows you to customize the startup command for your server or application, which is especially useful on hosting services that don't allow you to modify the startup command directly.
 
 ## How to Use
 
@@ -16,8 +16,8 @@ The `server.yml` file allows you to configure the following options:
 
 *   `ram-max`: The maximum amount of RAM to allocate to your server (e.g., `1G`, `2048M`).
 *   `ram-min`: The minimum amount of RAM to allocate to your server.
-*   `server-jar`: The name of the actual server JAR file you want to run.
-*   `use-options`: Set this to `true` to use the `ram-max`, `ram-min`, and `server-jar` options. If you set this to `false`, you can use your own custom startup command.
+*   `server-jar`: The name of the actual server file you want to run. This can be a `.jar`, `.sh`, `.bat`, or other executable file.
+*   `use-options`: Set this to `true` to use the `ram-max`, `ram-min`, and `server-jar` options with automatic file type detection. If you set this to `false`, you can use your own custom startup command for full control.
 *   `manual-startup-command`: If `use-options` is set to `false`, you can specify your own custom startup command here.
 
 ## Why Use AnyJar?
@@ -26,8 +26,15 @@ Many hosting services provide a pre-configured environment that doesn't allow yo
 
 AnyJar solves this problem by acting as a wrapper for your server. You can upload the AnyJar `server.jar` to your host and configure it to run your actual server JAR file with any startup command you want. This gives you the flexibility to run any server or use any custom flags you need.
 
-You can also use this to run something else entirely, such as a discord bot or a custom script.
+You can also use this to run something else entirely, such as:
+- Minecraft servers (Paper, Spigot, etc.)
+- Discord bots
+- Custom Java applications
+- Shell scripts (`.sh`)
+- Batch files (`.bat`, `.cmd`)
+- Python scripts
+- Any other executable files
 
 ## Current Issues
 
-* killing the anyjar process, does not stop the child process. 
+* killing the anyjar process, does not stop the child process.

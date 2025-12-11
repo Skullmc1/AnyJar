@@ -41,17 +41,29 @@ public class ConfigManager {
             writer.write("ram-min: 1G\n\n");
 
             writer.write(
-                "# server-jar: The name of the actual server jar file you want to run. Make sure it's in the same folder!\n# If it's not in the same folder, you'll need to provide the full path to the jar file.\n"
+                "# server-jar: The name of the actual server file you want to run. Make sure it's in the same folder!\n# If it's not in the same folder, you'll need to provide the full path to the file.\n# This can be a .jar, .sh, .bat, or other executable file.\n"
             );
             writer.write("server-jar: actual-server.jar\n\n");
 
             writer.write(
-                "# use-options: Set this to true to use the RAM options above.\n# If you just want the server jar name to change use the options above and keep this true.\n# If you set it to false, you can use your own custom command below.\n"
+                "# use-options: Set this to true to use the RAM options above and automatic file type detection.\n# If you just want to change the target file, keep this true and modify server-jar.\n# If you set it to false, you can use your own custom command below for full control.\n"
             );
             writer.write("use-options: true\n\n");
 
             writer.write(
                 "# manual-startup-command: If you're feeling adventurous, you can write your own startup command here. Just make sure to set use-options to false!\n"
+            );
+            writer.write(
+                "# This gives you complete control over how your server or application starts.\n"
+            );
+            writer.write(
+                "# Example: java -Xmx2G -Xms1G -jar my_server.jar nogui\n"
+            );
+            writer.write(
+                "# Example: bash startup.sh\n"
+            );
+            writer.write(
+                "# Example: python server.py\n"
             );
             writer.write(
                 "manual-startup-command: java -jar actual-server.jar nogui\n"
