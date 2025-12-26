@@ -6,6 +6,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
+import java.nio.channels.OverlappingFileLockException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,9 +33,28 @@ import java.util.logging.Logger;
 public class Main {
 
     private static final Logger logger = Logger.getLogger(Main.class.getName());
+    private static FileChannel lockChannel;
+    private static FileLock lock;
 
     public static void main(String[] args) {
         setupLogger();
+        
+        try {
+            File lockFile = new File("anyjar.lock");
+            lockChannel = new RandomAccessFile(lockFile, "rw").getChannel();
+            lock = lockChannel.tryLock();
+            
+            if (lock == null) {
+                logger.severe("Another instance of AnyJar is already running.");
+                System.out.println("Error: Another instance of AnyJar is already running.");
+                System.exit(1);
+            }
+        } catch (OverlappingFileLockException | IOException e) {
+            logger.severe("Could not acquire lock: " + e.getMessage());
+            System.out.println("Error: Could not acquire lock. Is another instance running?");
+            System.exit(1);
+        }
+        
         logger.info("AnyJar started.");
 
         File configFile = new File("server.yml");
